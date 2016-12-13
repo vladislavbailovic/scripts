@@ -23,5 +23,7 @@ COL2="${COLORS[$COL2IDX]}"
 
 COLRANGE="$COL1"'-'"$COL2"
 
+FILENAME="jpeg:-"
 
-convert -size "$SIZE" "plasma:$COLRANGE" test.jpg
+
+convert -size "$SIZE" "plasma:$COLRANGE" "$FILENAME"
