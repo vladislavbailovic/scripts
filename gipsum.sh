@@ -60,6 +60,4 @@ if [ -n "$FILENAME" ]; then
 	COMMAND="$COMMAND > $FILENAME"
 fi
 
-echo "$COMMAND"; exit
-
 eval $COMMAND
