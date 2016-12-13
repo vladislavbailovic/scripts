@@ -30,7 +30,7 @@ while getopts "t:pow:h:s:f:" opt; do
 			FORMAT="$OPTARG"
 			;;
 		p)
-			PIXELATE="yes"
+			PIXELATED="yes"
 			;;
 		o)
 			OPTIMIZATION="-quality 95 -depth 8"
