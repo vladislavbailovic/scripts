@@ -2,7 +2,7 @@
 
 # Creates test image
 
-HSIZE=100
+HSIZE=200
 VSIZE=100
 SIZE="$HSIZE"'x'"$VSIZE"
 
@@ -25,5 +25,7 @@ COLRANGE="$COL1"'-'"$COL2"
 
 FILENAME="jpeg:-"
 
+CMD="convert -size '$SIZE' 'plasma:$COLRANGE' '$FILENAME'"
+PIXELATED="$CMD | convert -scale '5%' -scale '$SIZE'! '$FILENAME' '$FILENAME'"
 
-convert -size "$SIZE" "plasma:$COLRANGE" "$FILENAME"
+eval $PIXELATED
