@@ -23,7 +23,11 @@ COL2="${COLORS[$COL2IDX]}"
 
 COLRANGE="$COL1"'-'"$COL2"
 
-CMD="convert -size '$SIZE' 'plasma:$COLRANGE' 'jpeg:-'"
-PIXELATED="$CMD | convert -scale '5%' -scale '$SIZE'! 'jpeg:-' 'jpeg:-'"
+PIXELATE="no"
 
-eval $PIXELATED
+COMMAND="convert -size '$SIZE' 'plasma:$COLRANGE' 'jpeg:-'"
+if [ "yes" == "$PIXELATED" ]; then
+	COMMAND="$COMMAND | convert -scale '5%' -scale '$SIZE'! 'jpeg:-' 'jpeg:-'"
+fi
+
+eval $COMMAND
