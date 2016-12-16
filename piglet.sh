@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Creates images from figlet|toilet output
+# 	./gipsum.sh -s'500x200' | ./piglet.sh "say what!" | display 'png:-'
 
 RAW="$(figlet --font pagga $1)"
 CONTENT=""
