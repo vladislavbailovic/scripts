@@ -2,7 +2,7 @@
 
 # Creates images from figlet|toilet output
 
-RAW="$(figlet 'doom')"
+RAW="$(figlet --font pagga $1)"
 CONTENT=""
 oldIFS="$IFS"
 IFS=
