@@ -2,11 +2,12 @@
 
 # Creates images from figlet|toilet output
 if [ -p /dev/stdin ]; then
-	RAW=$(cat)
+	SIZE=$(cat - | identify -format '%[fx:w]x%[fx:h]' 'png:-')
 else
-	RAW="Test test test"
+	SIZE='300x100'
 fi
 
+RAW="$(figlet 'doom')"
 CONTENT=""
 oldIFS="$IFS"
 IFS=
@@ -20,5 +21,5 @@ FONTS=($(convert -list font | grep -i 'font: .*mono' | sed -e 's/^.*: //'))
 IDX=$((RANDOM%${#FONTS[@]}))
 FONT=${FONTS[$IDX]}
 
-convert -size '300x100' -font $FONT -pointsize 10 -background white -fill black label:"$CONTENT" 'png:-'
+convert -size "$SIZE" -font $FONT -pointsize 10 -background white -fill black label:"$CONTENT" 'png:-'
 #exec "$COMMAND"
